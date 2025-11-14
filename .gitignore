@@ -1,0 +1,8 @@
+/node_modules
+/public
+/.cache
+/.parcel-cache
+/.vscode
+/.DS_Store
+/.env.local
+/.env.*.local

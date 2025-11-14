@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or site.title }}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            {% for item in navigation %}
+                <a href="{{ item.url }}">{{ item.label }}</a>
+            {% endfor %}
+        </nav>
+    </header>
+    
+    <main>
+        {{ content | safe }}
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 - {{ site.author }}</p>
+        <p>
+            {% if site.social.github %}
+                <a href="{{ site.social.github }}" target="_blank">GitHub</a>
+            {% endif %}
+            {% if site.social.twitter %}
+                | <a href="{{ site.social.twitter }}" target="_blank">Twitter</a>
+            {% endif %}
+            {% if site.social.linkedin %}
+                | <a href="{{ site.social.linkedin }}" target="_blank">LinkedIn</a>
+            {% endif %}
+        </p>
+    </footer>
+</body>
+</html>

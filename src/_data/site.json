@@ -1,0 +1,11 @@
+{
+  "title": "Mon Site Eleventy",
+  "description": "Un site statique moderne créé avec Eleventy",
+  "author": "Votre Nom",
+  "url": "https://monsite.fr",
+  "social": {
+    "github": "https://github.com/username",
+    "twitter": "https://twitter.com/username",
+    "linkedin": "https://linkedin.com/in/username"
+  }
+}

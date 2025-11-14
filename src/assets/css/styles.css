@@ -1,0 +1,294 @@
+/* Import de Roboto (système Android) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Palette violette minimaliste */
+:root {
+  /* Couleurs principales très subtiles */
+  --violet-50: #faf5ff;
+  --violet-100: #f3e8ff;
+  --violet-200: #e9d5ff;
+  --violet-500: #a855f7;
+  --violet-600: #9333ea;
+  --violet-700: #7e22ce;
+  --violet-900: #4c1d95;
+  
+  /* Application minimaliste */
+  --color-text: #1a1a1a;
+  --color-text-light: #6b7280;
+  --color-accent: var(--violet-600);
+  --color-bg: #ffffff;
+  --color-border: #f3f4f6;
+  
+  /* Typographie */
+  --font-main: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Navigation minimaliste */
+header {
+  padding: 4rem 0 2rem;
+  margin-bottom: 4rem;
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+header nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Typographie épurée */
+h1, h2, h3 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-light);
+}
+
+/* Liens avec accent violet subtil */
+main a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  transition: all 0.2s ease;
+}
+
+main a:hover {
+  color: var(--color-accent);
+}
+
+/* Listes minimalistes */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+ul li:first-child {
+  padding-top: 0;
+}
+
+ul li a {
+  font-size: 1.125rem;
+  font-weight: 400;
+  border-bottom: none;
+}
+
+ul li a:hover {
+  color: var(--color-accent);
+}
+
+ul li em {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* Footer épuré */
+footer {
+  margin-top: 8rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Espacement */
+main {
+  min-height: 60vh;
+}
+
+/* Bullet points avec accent violet */
+main ul li {
+  display: list-item;
+  list-style: none;
+  margin-left: 1.5rem;
+  border-bottom: none;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+main ul li::before {
+  content: '—';
+  color: var(--color-accent);
+  position: absolute;
+  left: -1.5rem;
+}
+
+/* Shortcodes styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--violet-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(147, 51, 234, 0.2);
+}
+
+.alert {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  border-left: 4px solid;
+}
+
+.alert-info {
+  background-color: var(--violet-50);
+  border-color: var(--violet-500);
+  color: var(--violet-900);
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  border-color: #10b981;
+  color: #064e3b;
+}
+
+.note {
+  background-color: var(--violet-50);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+}
+
+.note h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.quote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 3px solid var(--color-accent);
+  background-color: var(--violet-50);
+  font-style: italic;
+}
+
+.quote p {
+  margin-bottom: 0.5rem;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Navigation de pagination */
+.pagination-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.pagination-prev,
+.pagination-next {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--violet-50);
+  color: var(--color-accent);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.pagination-prev:hover,
+.pagination-next:hover {
+  background-color: var(--color-accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.pagination-next {
+  margin-left: auto;
+}
+
