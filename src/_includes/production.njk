@@ -1,0 +1,56 @@
+---
+layout: base.njk
+---
+
+<main class="production-page">
+
+  <!-- Entête visuel et infos principales -->
+  <div class="production-banner" style="background-image: url('{{ image }}');">
+    <div class="production-banner-overlay"></div>
+    <div class="production-banner-content">
+      <div class="production-header">
+        <h1 class="production-title-2">{{ title }}</h1>
+        <div class="production-meta">
+          <span class="production-duration">{{ duration }}</span>
+          <span class="production-type">{{ type }} - {{ statut }}</span>
+        </div>
+      </div>
+      <div class="production-director">{{ director }}</div>
+    </div>
+  </div>
+
+  <!-- Résumé du film -->
+  <section class="production-summary">
+    <h2>A propos</h2>
+    <p>{{ pitch | safe }}</p>
+    <p>{{ summary | safe }}</p>
+  </section>
+
+  <!-- Crédits -->
+  <section class="production-credits">
+    <h3>Crédits</h3>
+    <ul>
+      <li><strong>Réalisation :</strong> {{ director }}</li>
+      {% if year %}<li><strong>Année :</strong> {{ year }}</li>{% endif %}
+      {% if country %}<li><strong>Pays :</strong> {{ country }}</li>{% endif %}
+    </ul>
+  </section>
+
+  <!-- Suggestions (autres productions) -->
+  {% if relatedProductions %}
+  <section class="related-productions">
+    <h3>Suggestions</h3>
+    <ul>
+      {% for prod in relatedProductions %}
+      <li>
+        <a href="{{ prod.url }}">
+          <img src="{{ prod.image }}" alt="{{ prod.title }}">
+          <span>{{ prod.title }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  
+</main>

@@ -1,0 +1,83 @@
+/* ========================================
+   STYLES DE BASE
+   Reset et styles typographiques globaux
+   ======================================== */
+
+/* Reset du body */
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* ============ TYPOGRAPHIE ============ */
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-light);
+}
+
+/* ============ LIENS ============ */
+
+/* Liens dans le contenu principal */
+main a:not([class]) {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  transition: color var(--transition-base);
+}
+
+main a:not([class]):hover {
+  color: var(--color-accent);
+}
+
+/* ============ EMPHASE ============ */
+
+strong {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+em {
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+/* ============ CODE ============ */
+
+code {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--color-bg-subtle);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+}

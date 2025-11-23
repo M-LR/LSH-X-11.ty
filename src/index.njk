@@ -1,0 +1,99 @@
+---
+layout: base.njk
+title: Accueil - Les Studios du Héron
+description: Association de production audiovisuelle professionnelle
+---
+
+<!-- SECTION HERO -->
+<section class="hero">
+  <div class="hero__image-bg">
+    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1400&q=80" alt="Studio de production audiovisuelle">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1 class="hero__title">
+      Des histoires qui résonnent<br>
+      <span>Des images qui marquent</span>
+    </h1>
+    <div class="hero__desc">
+      Association de production audiovisuelle indépendante.<br>
+      Nous donnons vie aux récits qui questionnent, émeuvent et transforment notre regard sur le monde.
+    </div>
+    <div class="hero__actions">
+      <a href="#productions" class="btn">Découvrir nos productions</a>
+      <a href="#productions" class="btn btn--alt">Voir notre expertise</a>
+    </div>
+    <div class="hero__note">Engagé·es depuis 2024</div>
+  </div>
+</section>
+
+<!-- SECTION PROJET À LA UNE -->
+{% set featured_projects = collections.production | filterFeatured %}
+{% set featured_project = featured_projects[0] %}
+
+{% if featured_project %}
+<section class="featured-project" id="featured-project">
+  <div class="container">
+    <h2 class="section-title">Projet à la <span>une</span></h2>
+    <div class="featured-project-row">
+
+      <div class="featured-project-image" role="img" aria-label="Image du projet à la une" style="background-image: url({{ featured_project.data.image }});"></div>
+
+      <div class="featured-project-text">
+        <h3 class="featured-project-title">
+          <a href="{{featured_project.url}}">{{ featured_project.data.title }}</a>
+        </h3>
+        <p>{{ featured_project.data.statut }}</p>
+        <p class="featured-project-director">Réalisé par : {{ featured_project.data.director }}</p>
+        <p class="featured-project-description">{{ featured_project.data.summary }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- SECTION PRODUCTIONS -->
+<section class="productions" id="productions">
+  <div class="container">
+    <h2 class="section-title">Ce que nous créons <span>ensemble</span></h2>
+    <div class="productions-grid">
+      {% for item in collections.production %}
+      <a class="production-card" href="{{ item.url }}">
+        <div class="production-image" style="background-image: url('{{ item.data.image }}')"></div>
+        <div class="production-overlay"></div>
+        <div class="production-header">
+          <h3 class="production-title">{{ item.data.title }}</h3>
+          <span class="production-duration">🕝 {{ item.data.duration }}</span>
+        </div>
+        <div class="production-info">
+          <p class="production-director">{{ item.data.director }}</p>
+          <p class="production-type">{{ item.data.type }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SECTION TERRAIN DE JEU CRÉATIF -->
+<section class="creative-playground" id="creative-playground">
+  <div class="container">
+    <h2 class="section-title">Notre terrain de <span>jeu créatif</span></h2>
+    <ul class="creative-list">
+      <li>
+        <h3>Documentaires</h3>
+        <p>Des récits captivants qui explorent la réalité avec sensibilité et profondeur, donnant vie à des histoires vraies.</p>
+      </li>
+      <li>
+        <h3>Fictions</h3>
+        <p>Des univers imaginaires et des scénarios originaux qui stimulent l'émotion et la réflexion à travers la narration visuelle.</p>
+      </li>
+      <li>
+        <h3>Vidéos d'impact</h3>
+        <p>Des contenus engagés qui mobilisent, sensibilisent et inspirent des changements positifs grâce au pouvoir de l’image.</p>
+      </li>
+      
+    </ul>
+  </div>
+</section>

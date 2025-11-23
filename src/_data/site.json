@@ -1,11 +1,10 @@
 {
-  "title": "Mon Site Eleventy",
-  "description": "Un site statique moderne créé avec Eleventy",
-  "author": "Votre Nom",
-  "url": "https://monsite.fr",
+  "title": "Les studios du héron",
+  "description": "Association de production audiovisuelle dédiée à la création et la diffusion de contenus.",
+  "author": "Les Studios du Héron",
+  "url": "https://studiosduheron.fr",
   "social": {
-    "github": "https://github.com/username",
-    "twitter": "https://twitter.com/username",
-    "linkedin": "https://linkedin.com/in/username"
+    "instagram": "https://github.com/username"
+  
   }
 }

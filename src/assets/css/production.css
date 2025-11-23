@@ -1,0 +1,146 @@
+.production-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+.production-banner {
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+}
+
+.production-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28,18,49,0.7) 0%, rgba(36,25,66,0.8) 100%);
+  z-index: 1;
+}
+
+.production-banner-content {
+  position: absolute;
+  inset: 0;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 2;
+  color: var(--color-text-on-dark);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.production-title-2 {
+  color: var(--color-text-on-dark);
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.production-meta span {
+  margin-left: 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.production-director {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.production-summary,
+.production-credits,
+.related-productions {
+  margin-bottom: 3rem;
+}
+
+.production-summary h2,
+.production-credits h3,
+.related-productions h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--violet-900);
+  padding-bottom: 0.3rem;
+}
+
+.production-summary p {
+  font-size: 1.1rem;
+}
+
+.production-credits ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.production-credits li {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.related-productions ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.related-productions li {
+  flex: 1 0 140px;
+}
+
+.related-productions img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+
+.related-productions a {
+  text-decoration: none;
+  color: var(--color-text);
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.related-productions a:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 700px) {
+  .production-banner-content {
+    padding: 1rem 1.5rem;
+  }
+
+  .production-title {
+    font-size: 2rem;
+  }
+  
+
+  
+  .production-meta span {
+    margin-left: 0;
+    margin-top: 0.3rem;
+  }
+
+  .related-productions ul {
+    flex-direction: column;
+  }
+
+  .related-productions li {
+    flex: 1 0 100%;
+  }
+}

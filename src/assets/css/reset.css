@@ -1,0 +1,91 @@
+/* Reset CSS moderne - Basé sur les best practices 2025 */
+
+/* Box-sizing moderne */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset margin/padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Core body defaults */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  line-height: var(--line-height-normal);
+}
+
+/* Headings et éléments interactifs */
+h1, h2, h3, h4, h5, h6 {
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Équilibre du texte sur les titres */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Amélioration du rendu texte */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Listes */
+ul, ol {
+  list-style: none;
+}
+
+/* Liens sans classe */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Médias responsifs */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Héritage des polices pour formulaires */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Textarea minimum */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Scroll margin pour ancres */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Focus accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
