@@ -7,7 +7,7 @@ description: Association de production audiovisuelle professionnelle
 <!-- SECTION HERO -->
 <section class="hero">
   <div class="hero__image-bg">
-    <img src="{{ site.heroPicture }}" alt="Studio de production audiovisuelle">
+    <img src="{{ site.heroPicture | url }}" alt="Studio de production audiovisuelle">
   </div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
@@ -37,11 +37,16 @@ description: Association de production audiovisuelle professionnelle
     <h2 class="section-title">Projet à la <span>une</span></h2>
     <div class="featured-project-row">
 
-      <div class="featured-project-image" role="img" aria-label="Image du projet à la une" style="background-image: url({{ featured_project.data.image }});"></div>
+      <div
+        class="featured-project-image"
+        role="img"
+        aria-label="Image du projet à la une"
+        style="background-image: url('{{ featured_project.data.image | url }}');">
+      </div>
 
       <div class="featured-project-text">
         <h3 class="featured-project-title">
-          <a href="{{featured_project.url}}">{{ featured_project.data.title }}</a>
+          <a href="{{ featured_project.url | url }}">{{ featured_project.data.title }}</a>
         </h3>
         <p>{{ featured_project.data.statut }}</p>
         <p class="featured-project-director">Réalisé par : {{ featured_project.data.director }}</p>
@@ -59,8 +64,8 @@ description: Association de production audiovisuelle professionnelle
     <h2 class="section-title">Ce que nous créons <span>ensemble</span></h2>
     <div class="productions-grid">
       {% for item in collections.production %}
-      <a class="production-card" href="{{ item.url }}">
-        <div class="production-image" style="background-image: url('{{ item.data.image }}')"></div>
+      <a class="production-card" href="{{ item.url | url }}">
+        <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
         <div class="production-overlay"></div>
         <div class="production-header">
           <h3 class="production-title">{{ item.data.title }}</h3>
@@ -93,7 +98,6 @@ description: Association de production audiovisuelle professionnelle
         <h3>Vidéos d'impact</h3>
         <p>Des contenus engagés qui mobilisent, sensibilisent et inspirent des changements positifs grâce au pouvoir de l’image.</p>
       </li>
-      
     </ul>
   </div>
 </section>

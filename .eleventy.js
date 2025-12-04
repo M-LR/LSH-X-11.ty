@@ -26,7 +26,7 @@ module.exports = function(eleventyConfig) {
   return {
     // Utiliser Nunjucks pour les fichiers Markdown
     markdownTemplateEngine: "njk",
-    
+    pathPrefix: "/LSH-X-11.ty/",
     dir: {
       input: "src",
       includes: "_includes",

@@ -5,7 +5,7 @@ layout: base.njk
 <main class="production-page">
 
   <!-- Entête visuel et infos principales -->
-  <div class="production-banner" style="background-image: url('{{ image }}');">
+  <div class="production-banner" style="background-image: url('{{ image | url }}');">
     <div class="production-banner-overlay"></div>
     <div class="production-banner-content">
       <div class="production-header">
@@ -43,8 +43,8 @@ layout: base.njk
     <ul>
       {% for prod in relatedProductions %}
       <li>
-        <a href="{{ prod.url }}">
-          <img src="{{ prod.image }}" alt="{{ prod.title }}">
+        <a href="{{ prod.url | url }}">
+          <img src="{{ prod.image | url }}" alt="{{ prod.title }}">
           <span>{{ prod.title }}</span>
         </a>
       </li>
