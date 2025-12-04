@@ -6,5 +6,8 @@
   "social": {
     "instagram": "https://github.com/username"
   
-  }
+  },
+  "logo": "/assets/images/logo.png",
+  "heroPicture": "/assets/images/hero.jpg"
+
 }

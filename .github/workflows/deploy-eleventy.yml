@@ -1,0 +1,73 @@
+# Nom affiché dans l’onglet Actions
+name: Deploy Eleventy to GitHub Pages
+
+on:
+  # Déclenchement quand il y a un push sur main (après merge d’une PR)
+  push:
+    branches: [ main ]
+  # Déclenchement pour chaque pull request qui cible main (build de vérification)
+  pull_request:
+    branches: [ main ]
+  # Lancement manuel depuis l’UI GitHub Actions
+  workflow_dispatch:
+
+# Droits nécessaires pour GitHub Pages
+permissions:
+  contents: read      # lecture du repo
+  pages: write        # écriture sur GitHub Pages
+  id-token: write     # requis par deploy-pages v4
+
+# Évite les déploiements concurrents (un seul en cours)
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Job de build (commune aux PR et aux push)
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Récupère le code du repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Installe Node.js (ici version 20)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Installe les dépendances à partir de package-lock.json
+      - name: Install dependencies
+        run: npm ci
+
+      # Build du site Eleventy (doit générer les fichiers dans ./public)
+      - name: Build Eleventy
+        run: npm run build
+
+      # On n’upload l’artefact que lors d’un push sur main (pas pour les PR)
+      - name: Upload docs as artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          # Dossier de sortie du build (adapté à ta config Eleventy)
+          path: ./public
+
+  # Job de déploiement sur GitHub Pages (uniquement après push sur main)
+  deploy:
+    # On ne déploie jamais sur un simple pull_request
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: build       # attend que le job build soit terminé avec succès
+
+    environment:
+      name: github-pages
+      # URL finale du site, fournie par l’action de déploiement
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Déploiement de l’artefact précédemment uploadé vers GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
