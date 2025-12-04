@@ -1,103 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or site.title }}</title>
-    <meta name="description" content="{{ description or site.description }}">
-    
-    <!-- Open Graph pour partage social -->
-    <meta property="og:title" content="{{ title or site.title }}">
-    <meta property="og:description" content="{{ description or site.description }}">
-    <meta property="og:type" content="website">
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-    <link rel="manifest" href="/assets/images/site.webmanifest">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    
-    <!-- Preconnect pour optimisation -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-    <!-- Header avec navigation sticky -->
-<header class="header">
-  <div class="nav">
-    <a class="logo" href="/">{{ site.title }}</a>
-    <nav class="main-nav">
-      {% for item in navigation %}
-        <a href="{{ item.url }}">{{ item.label }}</a>
-      {% endfor %}
-     
-    </nav>
-  </div>
-</header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title or site.title }}</title>
+        <meta name="description" content="{{ description or site.description }}">
+        
+        <!-- Open Graph pour partage social -->
+        <meta property="og:title" content="{{ title or site.title }}">
+        <meta property="og:description" content="{{ description or site.description }}">
+        <meta property="og:type" content="website">
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | url }}">
+        <link rel="manifest" href="{{ '/assets/images/site.webmanifest' | url }}">
 
-    
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+        
+        <!-- Preconnect pour optimisation -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    </head>
+    <body>
+        <!-- Header avec navigation sticky -->
+        <header class="header">
+        <div class="nav">
+            <a class="logo" href="{{ '/' | url }}">{{ site.title }}</a>
+            <nav class="main-nav">
+            {% for item in navigation %}
+                <a href="{{ item.url | url }}">{{ item.label }}</a>
+            {% endfor %}
+            </nav>
+        </div>
+        </header>
 
-    <main class="site-main">
-        {{ content | safe }}
-    </main>
-    
-  
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Colonne 1 : Branding -->
-                <div class="footer-col">
-                    <h3 class="footer-title">{{ site.title }}</h3>
-                    <p class="footer-tagline">{{ site.description or "Votre description ici" }}</p>
+        <main class="site-main">
+            {{ content | safe }}
+        </main>
+        
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <!-- Colonne 1 : Branding -->
+                    <div class="footer-col">
+                        <h3 class="footer-title">{{ site.title }}</h3>
+                        <p class="footer-tagline">{{ site.description or "Votre description ici" }}</p>
+                    </div>
+                    
+                    <!-- Colonne 2 : Navigation -->
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Navigation</h4>
+                        <ul class="footer-links">
+                            {% for item in navigation %}
+                                <li><a href="{{ item.url | url }}">{{ item.label }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    <!-- Colonne 3 : Réseaux sociaux -->
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Suivez-nous</h4>
+                        <div class="social-links">
+                            {% if site.social.instagram %}
+                                <a href="{{ site.social.instagram }}" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                aria-label="GitHub">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Colonne 2 : Navigation -->
-                <div class="footer-col">
-                    <h4 class="footer-heading">Navigation</h4>
-                    <ul class="footer-links">
-                        {% for item in navigation %}
-                            <li><a href="{{ item.url }}">{{ item.label }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                
-                <!-- Colonne 3 : Réseaux sociaux -->
-                <div class="footer-col">
-                    <h4 class="footer-heading">Suivez-nous</h4>
-                    <div class="social-links">
-                        {% if site.social.instagram %}
-                            <a href="{{ site.social.instagram }}" 
-                               target="_blank" 
-                               rel="noopener noreferrer"
-                               aria-label="GitHub">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-                                </svg>
-
-                            </a>
-                        {% endif %}
+                <!-- Copyright bar -->
+                <div class="footer-bottom">
+                    <p class="copyright">&copy; {{ site.currentYear or "2025" }} {{ site.author }}. Tous droits réservés.</p>
+                    <div class="footer-legal">
+                        <a href="{{ '/mentions-legales' | url }}">Mentions légales</a>
+                        <a href="{{ '/confidentialite' | url }}">Confidentialité</a>
+                        <a href="{{ '/cookies' | url }}">Cookies</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Copyright bar -->
-            <div class="footer-bottom">
-                <p class="copyright">&copy; {{ site.currentYear or "2025" }} {{ site.author }}. Tous droits réservés.</p>
-                <div class="footer-legal">
-                    <a href="/mentions-legales">Mentions légales</a>
-                    <a href="/confidentialite">Confidentialité</a>
-                    <a href="/cookies">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="/assets/js/main.js" defer></script>
-</body>
+        </footer>
+        <!-- Scripts -->
+        <script src="{{ '/assets/js/main.js' | url }}" defer></script>
+    </body>
 </html>
