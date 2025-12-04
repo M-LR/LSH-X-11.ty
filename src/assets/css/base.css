@@ -2,7 +2,6 @@
    STYLES DE BASE
    Reset et styles typographiques globaux
    ======================================== */
-
 /* Reset du body */
 body {
   font-family: var(--font-main);

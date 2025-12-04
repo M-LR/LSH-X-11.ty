@@ -4,7 +4,7 @@ layout: production.njk
 title: Nos doudous
 tags: production
 statut: Actuellement en production
-image: https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1400&q=80
+image: "/assets/images/logo.png"
 director: Fanny Blanc
 duration: 52 min
 type: "Documentaire"
