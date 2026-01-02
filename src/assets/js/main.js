@@ -41,3 +41,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// parallax universel
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".el__parallax");
+  if (elements.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (prefersReducedMotion.matches) return;
+
+  const speed = 0.1;
+
+  const onScroll = () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    elements.forEach(el => {
+      el.style.transform = `translateY(${scrollY * speed}px) scaleX(-1)`;
+    });
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+});
+
+

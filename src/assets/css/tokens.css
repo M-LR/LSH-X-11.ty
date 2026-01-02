@@ -18,7 +18,13 @@
   --violet-600: #9333ea;
   --violet-700: #7e22ce;
   --violet-900: #4c1d95;
-  
+  /* Palette jaune / or */
+  --yellow-400: #ffd524; 
+  --yellow-500: #f7a855; 
+/* Complémentaires principales */
+  --accent-1-500: oklch(58.5% 0.233 277.117);
+  --accent-2-700: oklch(45.7% 0.24 277.023);
+
   /* Couleurs de fond */
   --color-bg: oklch(96.7% 0.001 286.375);
   --color-bg-dark: oklch(14.5% 0 0);
@@ -33,7 +39,7 @@
   --color-text-light-on-dark: oklch(80% 0.01 285);
   
   /* Couleurs utilitaires */
-  --color-accent: var(--violet-600);
+  --color-accent: var(--violet-700);
   --color-border: #f3f4f6;
   
   /* ============ TYPOGRAPHIE ============ */

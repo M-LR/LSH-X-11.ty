@@ -1,5 +1,6 @@
-
-/* ========== HEADER/NAV COMPONENT ========== */
+/* ========================================
+    LAYOUT : HEADER & FOOTER
+    ======================================== */
 .header {
   background: var(--color-bg);
   border-bottom: 1px solid var( --violet-700);
@@ -22,6 +23,14 @@
   font-size: var(--font-size-2xl);
   text-decoration: none;
   transition: color 0.5s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.logo-img {
+  width: 60px;
+  height: auto;
 }
 .logo:hover {
   color: var(--violet-900);
@@ -44,7 +53,7 @@
 }
 
 .site-footer {
-  border-top: 1px solid var( --violet-700);
+  border-top: 1px solid var(--yellow-500);
   padding: 3rem 0 1.5rem;
   font-family: 'DM Sans', sans-serif;
   color: var(--color-text-light);

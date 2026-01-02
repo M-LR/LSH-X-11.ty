@@ -2,67 +2,56 @@
 
 /* Boutons */
 .btn {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-base);
-  transition: all var(--transition-base);
+  background: var(--violet-900);
+  color: var(--color-text-on-dark);
   border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-md);
+  padding: 0.5rem 1rem;
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  line-height: 1;
+  transition: background 0.5s;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  /* border: 2px solid var(--color-text-on-dark); */
 }
 
-.btn-primary {
-  background: var(--color-accent);
-  color: white;
-}
-
-.btn-primary:hover {
+.btn:hover {
   background: var(--violet-700);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
+  
 }
 
-.btn-secondary {
-  background: transparent;
+.btn--alt {
+  background: var(--yellow-500);
   color: var(--color-text);
-  border: 1px solid var(--color-border);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-md);
+  padding: 0.5rem 1rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background 0.5s;
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  /* border: 2px solid var(--color-text-on-dark); */
 }
 
-.btn-secondary:hover {
-  background: var(--color-bg-subtle);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+
+
+.btn--alt:hover {
+  background: var(--yellow-400);
+  
 }
 
-/* Alertes */
-.alert {
-  padding: var(--space-md);
-  margin: var(--space-lg) 0;
-  border-radius: var(--radius-md);
-  border-left: 4px solid;
-}
 
-.alert-info {
-  background-color: var(--violet-50);
-  border-color: var(--violet-500);
-  color: var(--violet-900);
+mark {
+  background-color: var(--yellow-400); /* ton jaune */
+  color: #111827;            /* texte foncé lisible */
+  padding: 0.05em 0.15em;
+  border-radius: 0.15em 0.30em 0.5em 0.15em;
 }
-
-.alert-warning {
-  background-color: #fef3c7;
-  border-color: #f59e0b;
-  color: #78350f;
-}
-
-.alert-success {
-  background-color: #d1fae5;
-  border-color: #10b981;
-  color: #064e3b;
-}
-
 /* Note */
 .note {
   background-color: var(--color-bg-subtle);
