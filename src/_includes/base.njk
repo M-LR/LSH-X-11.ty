@@ -19,7 +19,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
-        
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
         <!-- Preconnect pour optimisation -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,14 @@
         <!-- Header avec navigation sticky -->
         <header class="header">
         <div class="nav">
-            <a class="logo" href="{{ '/' | url }}">{{ site.title }}</a>
+            <a class="logo" href="{{ '/' | url }}">
+                <img
+                    src={{ site.logo | url }}
+                    alt="{{ site.title }}"
+                    class="logo-img"
+                >
+                <span class="logo-text">{{ site.title }}</span>
+            </a>
             <nav class="main-nav">
             {% for item in navigation %}
                 <a href="{{ item.url | url }}">{{ item.label }}</a>
@@ -82,7 +90,7 @@
                 
                 <!-- Copyright bar -->
                 <div class="footer-bottom">
-                    <p class="copyright">&copy; {{ site.currentYear or "2025" }} {{ site.author }}. Tous droits réservés.</p>
+                    <p class="copyright">&copy; {{ site.currentYear or "2026" }} {{ site.author }}. Tous droits réservés.</p>
                     <div class="footer-legal">
                         <a href="{{ '/mentions-legales' | url }}">Mentions légales</a>
                         <a href="{{ '/confidentialite' | url }}">Confidentialité</a>
