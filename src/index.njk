@@ -7,178 +7,171 @@ description: Association de production audiovisuelle professionnelle
 <!-- SECTION HERO -->
 <section class="hero">
   <div class="hero__image-bg">
-    <img src="{{ site.heroPicture | url }}" alt="Studio de production audiovisuelle">
-  </div>
-  <div class="hero__overlay"></div>
-  <div class="hero__content">
-    <h1 class="hero__title">
-      Des histoires qui résonnent<br>
-      <span>Des images qui marquent</span>
-    </h1>
-    <div class="hero__desc">
-      Association de production audiovisuelle indépendante.<br>
-      Nous donnons vie aux récits qui questionnent, émeuvent et transforment notre regard sur le monde.
-    </div>
-    <div class="hero__actions">
-      <a href="#productions" class="btn--alt">Dernières productions</a>
-      <a href="#association" class="btn">Notre association</a>
-    </div>
-    <div class="hero__note">Engagé·e·s depuis 2024</div>
-  </div>
-</section>
-
-<!-- SECTION PROJET À LA UNE -->
-{% set featured_projects = collections.production | filterFeatured %}
-{% set featured_project = featured_projects[0] %}
-
-{% if featured_project %}
-<section class="featured-project" id="featured-project">
-  <div class="featured-project__parallax el__parallax"></div>
-  <div class="container">
-    <h2 class="section-title">
-       Projet à la une
-    </h2>
-    <div class="featured-project-row">
-
-      <div
-        class="featured-project-image"
-        role="img"
-        aria-label="Image du projet à la une"
-        style="background-image: url('{{ featured_project.data.image | url }}');">
-      </div>
-
-      <div class="featured-project-text">
-        <h3 class="featured-project-title">
-         {{ featured_project.data.title }}
-        </h3>
-        <p>{{ featured_project.data.statut }}</p>
-        <p class="featured-project-director">Réalisé par : {{ featured_project.data.director }}</p>
-        <p class="featured-project-description">{{ featured_project.data.summary }}</p>
-        <div class="featured-project-actions">
-          <a href="{{ featured_project.url | url }}" class="btn btn--alt">Voir le projet</a>
+    <img src="{{ site.heroPicture | url }}" alt="Studio de production audiovisuelle"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        Des histoires qui résonnent<br>
+          <span>Des images qui marquent</span>
+        </h1>
+        <div class="hero__desc">
+          Association de production audiovisuelle indépendante.<br>
+            Nous donnons vie aux récits qui questionnent, émeuvent et transforment notre regard sur le monde.
           </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<!-- SECTION PRODUCTIONS -->
-<section class="productions" id="productions">
-  <div class="container">
-    <h2 class="section-title">Ce que nous réalisons <span>ensemble</span></h2>
-    <div class="productions-grid">
-      {% for item in collections.production %}
-      <a class="production-card" href="{{ item.url | url }}">
-        <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
-        <div class="production-overlay">
-          <p class="production-summary">
-            {{ item.data.summary }}
+          <div class="hero__actions">
+            <a href="#productions" class="btn--alt">Dernières productions</a>
+            <a href="#association" class="btn">Notre association</a>
+          </div>
+          <div class="hero__note">Engagé·e·s depuis 2024</div>
+        </div>
+      </section>
+      <!-- SECTION PROJET À LA UNE -->
+      {% set featured_projects = collections.production | filterFeatured %}
+      {% set featured_project = featured_projects[0] %}
+      {% if featured_project %}
+        <section class="featured-project" id="featured-project">
+          <div class="featured-project__parallax el__parallax"></div>
+          <div class="container">
+            <h2 class="section-title">
+              Projet à la une
+            </h2>
+            <div class="featured-project-row">
+              <div
+                class="featured-project-image"
+                role="img"
+                aria-label="Image du projet à la une"
+                style="background-image: url('{{ featured_project.data.image | url }}');"></div>
+              <div class="featured-project-text">
+                <h3 class="featured-project-title">
+                  {{ featured_project.data.title }}
+                </h3>
+                <p>{{ featured_project.data.statut }}</p>
+                <p class="featured-project-director">Réalisé par : {{ featured_project.data.director }}</p>
+                <p class="featured-project-description">{{ featured_project.data.summary }}</p>
+                <div class="featured-project-actions">
+                  <a href="{{ featured_project.url | url }}" class="btn btn--alt">Voir le projet</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      {% endif %}
+      <!-- SECTION PRODUCTIONS -->
+      <section class="productions" id="productions">
+        <div class="container">
+          <h2 class="section-title">Ce que nous réalisons
+            <span>ensemble</span>
+          </h2>
+          <div class="productions-grid">
+            {% for item in collections.production %}
+              <a class="production-card" href="{{ item.url | url }}">
+                <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
+                <div class="production-overlay">
+                  <div class="production-header">
+                    <h4 class="production-title">{{ item.data.title }}</h4>
+                  </div>
+                  <div class="production-info">
+                    <p class="production-director">{{ item.data.director }}</p>
+                    <p class="production-type">{{ item.data.type }}</p>
+                    <p class="production-summary">{{ item.data.summary }}</p>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="productions-actions">
+            <a href="{{ '/productions' | url }}" class="btn btn--alt">Voir toutes les productions</a>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION TERRAIN DE JEU CRÉATIF -->
+      <section class="creative-playground" id="creative-playground">
+        <div class="creative-playground__parallax el__parallax"></div>
+        <div class="container">
+          <h2 class="section-title">Notre terrain de
+            <span>jeu créatif</span>
+          </h2>
+          <ul class="creative-list">
+            <li>
+              <h3>Documentaires</h3>
+              <p>Des récits captivants qui explorent la réalité avec sensibilité et profondeur, donnant vie à des histoires vraies.</p>
+            </li>
+            <li>
+              <h3>Fictions</h3>
+              <p>Des univers imaginaires et des scénarios originaux qui stimulent l'émotion et la réflexion à travers la narration
+                visuelle.</p>
+            </li>
+            <li>
+              <h3>Vidéos d'impact</h3>
+              <p>Des contenus engagés qui mobilisent, sensibilisent et inspirent des changements positifs grâce au pouvoir de l’image.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- SECTION A PROPOS DE L'ASSOCIATION -->
+      <section class="about" id="association">
+        <h2 class="section-title">Les Studios du Héron</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              <mark>Les Studios du Héron</mark>
+              est une association loi 1901 fondée en 2024, dédiée à la création et à la production audiovisuelle indépendante.</p>
+            <p>À travers nos documentaires, fictions et captations, nous cherchons à ouvrir des espaces de dialogue, à donner la
+              parole à celles et ceux qu’on entend peu.</p>
+          </div>
+          <div class="about-values">
+            <div class="about-value">
+              <h3 class="about-value-title">
+                <i class="ri-leaf-line about-value-icon" aria-hidden="true"></i>
+                Respecter l’environnement
+              </h3>
+              <p>Protéger la biodiversité commence par une attention concrète à l’impact de nos pratiques. Nous favorisons des
+                tournages sobres, des choix techniques responsables et une vigilance sur l’empreinte de chaque projet.</p>
+            </div>
+            <div class="about-value">
+              <h3 class="about-value-title">
+                <i class="ri-megaphone-line about-value-icon" aria-hidden="true"></i>
+                Exprimer ses opinions
+              </h3>
+              <p>L’expression des opinions est au cœur de la démocratie et du progrès social. Nos productions offrent un espace où les
+                voix singulières peuvent se raconter, se confronter et nourrir un débat vivant et respectueux.</p>
+            </div>
+            <div class="about-value">
+              <h3 class="about-value-title">
+                <i class="ri-team-line about-value-icon" aria-hidden="true"></i>
+                Défendre des valeurs inclusives
+              </h3>
+              <p>Nous croyons à une création qui accueille toutes les identités et tous les parcours. En défendant des valeurs
+                inclusives, nous participons à une coexistence plus juste entre des personnes aux origines, cultures et croyances
+                diverses.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION PARTENARIATS -->
+      <section class="partners" id="partenariats">
+        <div class="container">
+          <h2 class="section-title">Nos
+            <span>partenariats</span>
+          </h2>
+          <p class="partners-intro">
+            Les Studios du Héron travaillent avec des structures engagées qui partagent nos valeurs de création indépendante,
+            d’inclusion et de respect de l’environnement.
           </p>
-        </div>
-        <div class="production-header">
-          <h4 class="production-title">{{ item.data.title }}</h4>
-          
-        </div>
-        <div class="production-info">
-          <p class="production-director">{{ item.data.director }}</p>
-          <p class="production-type">{{ item.data.type }}</p>
-          <span class="production-duration"><i class="ri-timer-2-fill"></i> {{ item.data.duration }}</span>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
-    <div class="productions-actions">
-      <a href="{{ '/productions' | url }}" class="btn btn--alt">Voir toutes les productions</a>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION TERRAIN DE JEU CRÉATIF -->
-<section class="creative-playground" id="creative-playground">
-  <div class="creative-playground__parallax el__parallax"></div>
-  <div class="container">
-    <h2 class="section-title">Notre terrain de <span>jeu créatif</span></h2>
-    <ul class="creative-list">
-      <li>
-        <h3>Documentaires</h3>
-        <p>Des récits captivants qui explorent la réalité avec sensibilité et profondeur, donnant vie à des histoires vraies.</p>
-      </li>
-      <li>
-        <h3>Fictions</h3>
-        <p>Des univers imaginaires et des scénarios originaux qui stimulent l'émotion et la réflexion à travers la narration visuelle.</p>
-      </li>
-      <li>
-        <h3>Vidéos d'impact</h3>
-        <p>Des contenus engagés qui mobilisent, sensibilisent et inspirent des changements positifs grâce au pouvoir de l’image.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-<!-- SECTION A PROPOS DE L'ASSOCIATION -->
-<section class="about" id="association">
-  <h2 class="section-title">Les Studios du Héron</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p><mark>Les Studios du Héron</mark> est une association loi 1901 fondée en 2024, dédiée à la création et à la production audiovisuelle indépendante.</p>
-      <p>À travers nos documentaires, fictions et captations, nous cherchons à ouvrir des espaces de dialogue, à donner la parole à celles et ceux qu’on entend peu.</p>
-    </div>
-
-    <div class="about-values">
-      <div class="about-value">
-        <h3 class="about-value-title">
-          <i class="ri-leaf-line about-value-icon" aria-hidden="true"></i>
-          Respecter l’environnement
-        </h3>
-        <p>Protéger la biodiversité commence par une attention concrète à l’impact de nos pratiques. Nous favorisons des tournages sobres, des choix techniques responsables et une vigilance sur l’empreinte de chaque projet.</p>
-      </div>
-
-      <div class="about-value">
-        <h3 class="about-value-title">
-          <i class="ri-megaphone-line about-value-icon" aria-hidden="true"></i>
-          Exprimer ses opinions
-        </h3>
-        <p>L’expression des opinions est au cœur de la démocratie et du progrès social. Nos productions offrent un espace où les voix singulières peuvent se raconter, se confronter et nourrir un débat vivant et respectueux.</p>
-      </div>
-
-      <div class="about-value">
-        <h3 class="about-value-title">
-          <i class="ri-team-line about-value-icon" aria-hidden="true"></i>
-          Défendre des valeurs inclusives
-        </h3>
-        <p>Nous croyons à une création qui accueille toutes les identités et tous les parcours. En défendant des valeurs inclusives, nous participons à une coexistence plus juste entre des personnes aux origines, cultures et croyances diverses.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SECTION PARTENARIATS -->
-<section class="partners" id="partenariats">
-  <div class="container">
-    <h2 class="section-title">Nos <span>partenariats</span></h2>
-    <p class="partners-intro">
-      Les Studios du Héron travaillent avec des structures engagées qui partagent nos valeurs
-      de création indépendante, d’inclusion et de respect de l’environnement.
-    </p>
-
-    <div class="partners-grid">
-      {% for partner in partners %}
-      <div class="partner-card">
-        <div class="partner-logo">
-          {% if partner.url %}
-          <a href="{{ partner.url }}" target="_blank" rel="noreferrer">
-            <img src="{{ partner.logo | url }}" alt="{{ partner.alt }}">
-          </a>
-          {% else %}
-          <img src="{{ partner.logo | url }}" alt="{{ partner.alt }}">
-          {% endif %}
-        </div>
-        <p class="partner-name">{{ partner.name }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-
-
+          <div class="partners-grid">
+            {% for partner in partners %}
+              <div class="partner-card">
+                <div class="partner-logo">
+                  {% if partner.url %}
+                    <a href="{{ partner.url }}" target="_blank" rel="noreferrer">
+                      <img src="{{ partner.logo | url }}" alt="{{ partner.alt }}"></a>
+                    {% else %}
+                      <img src="{{ partner.logo | url }}" alt="{{ partner.alt }}">
+                      {% endif %}
+                    </div>
+                    <p class="partner-name">{{ partner.name }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </section>

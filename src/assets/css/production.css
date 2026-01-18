@@ -1,146 +1,142 @@
 .production-page {
   max-width: 1200px;
-  margin: 2rem auto;
-  font-family: var(--font-family-sans);
+  margin: var(--space-xl) auto;
   color: var(--color-text);
-  line-height: 1.6;
-  padding: 0 1rem;
+  line-height: var(--line-height-relaxed);
+  padding: 0 var(--space-lg);
 }
 
 .production-banner {
   position: relative;
-  height: 400px;
+  height: 50vh;
+  min-height: 400px;
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
 .production-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28,18,49,0.7) 0%, rgba(36,25,66,0.8) 100%);
+  background: linear-gradient(to top, rgba(10,10,10, 0.9) 0%, rgba(10,10,10, 0.2) 100%);
   z-index: 1;
 }
 
 .production-banner-content {
   position: absolute;
   inset: 0;
-  padding: 2rem 3rem;
+  padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   z-index: 2;
-  color: var(--color-text-on-dark);
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .production-title-2 {
+  font-family: var(--font-display);
   color: var(--color-text-on-dark);
-  font-size: 2.8rem;
-  font-weight: 900;
-  margin: 0;
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1;
 }
 
-.production-meta span {
-  margin-left: 1.5rem;
-  font-weight: 700;
-  font-size: 1.1rem;
+.production-meta {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .production-director {
-  font-size: 1.1rem;
-  font-weight: 600;
-  opacity: 0.9;
+  font-size: var(--font-size-lg);
+  color: var(--neutral-400);
 }
 
 .production-summary,
 .production-credits,
 .related-productions {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-2xl);
 }
 
 .production-summary h2,
 .production-credits h3,
 .related-productions h3 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-md);
   color: var(--color-text);
-  border-bottom: 2px solid var(--violet-900);
-  padding-bottom: 0.3rem;
 }
 
 .production-summary p {
-  font-size: 1.1rem;
+  font-size: var(--font-size-lg);
+  color: var(--neutral-300);
+  max-width: 75ch;
 }
 
 .production-credits ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
 }
 
 .production-credits li {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+  font-size: var(--font-size-base);
+  color: var(--neutral-400);
+  padding: var(--space-sm);
+  background: var(--neutral-900);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
 }
 
 .related-productions ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  padding: 0;
   list-style: none;
 }
 
 .related-productions li {
-  flex: 1 0 140px;
+  transition: transform var(--transition-base);
+}
+
+.related-productions li:hover {
+  transform: translateY(-5px);
 }
 
 .related-productions img {
   width: 100%;
-  border-radius: var(--radius-sm);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-md);
 }
 
 .related-productions a {
   text-decoration: none;
   color: var(--color-text);
   display: block;
-  margin-top: 0.5rem;
-  font-weight: 600;
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
   text-align: center;
 }
 
-.related-productions a:hover img {
-  transform: scale(1.05);
-}
-
 /* Responsive */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
+  .production-banner {
+    height: 40vh;
+  }
   .production-banner-content {
-    padding: 1rem 1.5rem;
-  }
-
-  .production-title {
-    font-size: 2rem;
-  }
-  
-
-  
-  .production-meta span {
-    margin-left: 0;
-    margin-top: 0.3rem;
-  }
-
-  .related-productions ul {
-    flex-direction: column;
-  }
-
-  .related-productions li {
-    flex: 1 0 100%;
+    padding: var(--space-lg);
   }
 }
+
