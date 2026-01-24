@@ -55,7 +55,7 @@
 
 .production-director {
   font-size: var(--font-size-lg);
-  color: var(--neutral-400);
+  color: white;
 }
 
 .production-summary,
@@ -75,7 +75,7 @@
 
 .production-summary p {
   font-size: var(--font-size-lg);
-  color: var(--neutral-300);
+  color: var(--color-text);
   max-width: 75ch;
 }
 
@@ -89,9 +89,9 @@
 
 .production-credits li {
   font-size: var(--font-size-base);
-  color: var(--neutral-400);
+  color: var(--color-text-muted);
   padding: var(--space-sm);
-  background: var(--neutral-900);
+  background: var(--color-bg-card);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
 }
