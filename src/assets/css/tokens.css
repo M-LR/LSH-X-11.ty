@@ -39,7 +39,7 @@
   /* Couleurs de texte */
   --color-text: var(--neutral-100);
   --color-text-muted: var(--neutral-400);
-  --color-text-on-dark: #ffffff;
+  --color-text-on-dark: var(--neutral-100);
   
   /* Couleurs utilitaires */
   --color-accent: oklch(62% 0.23 295);

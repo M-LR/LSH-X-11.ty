@@ -270,7 +270,7 @@
 
 .production-director {
   font-size: var(--font-size-sm);
-  color: white;
+  color: var(--color-text);
   font-weight: var(--font-weight-medium);
   margin: 0;
   transition: color var(--transition-base);
@@ -291,7 +291,7 @@
 
 .production-summary {
   font-size: var(--font-size-sm);
-  color: white; 
+  color: var(--neutral-100); 
   margin-top: var(--space-md);
   line-height: var(--line-height-normal);
   opacity: 0;
