@@ -8,9 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
 :root {
-  /* ============ COULEURS ============ */
-  
-  /* Palette Violette Initiale */
+  /* ============ COULEURS PARTAGÉES & SYSTÈME ============ */
   --violet-50: #faf5ff;
   --violet-100: #f3e8ff;
   --violet-200: #e9d5ff;
@@ -18,16 +16,20 @@
   --violet-600: #9333ea;
   --violet-700: #7e22ce;
   --violet-900: #4c1d95;
-  
-  /* Palette Neutre "Cinematic Deep" - Utilisation de OKLCH pour une profondeur moderne */
+}
+
+/* THÈME SOMBRE (Par défaut) */
+[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  /* Palette Neutre "Cinematic Deep" */
   --neutral-50: oklch(98% 0.005 285);
   --neutral-100: oklch(92% 0.01 285);
   --neutral-200: oklch(85% 0.02 285);
   --neutral-400: oklch(65% 0.03 285);
   --neutral-500: oklch(50% 0.04 285);
-  --neutral-800: oklch(22% 0.02 285);   /* Gris profond teinté de violet */
-  --neutral-900: oklch(16% 0.015 285);  /* Background principal */
-  --neutral-950: oklch(11% 0.01 285);   /* Noir pur cinématique */
+  --neutral-800: oklch(22% 0.02 285);
+  --neutral-900: oklch(16% 0.015 285);
+  --neutral-950: oklch(11% 0.01 285);
 
   /* Couleurs de fond */
   --color-bg: var(--neutral-900);
@@ -40,9 +42,46 @@
   --color-text-on-dark: #ffffff;
   
   /* Couleurs utilitaires */
-  --color-accent: oklch(62% 0.23 295); /* Violet électrique plus vibrant */
+  --color-accent: oklch(62% 0.23 295);
   --color-border: oklch(25% 0.03 285 / 0.5);
   --color-overlay: oklch(10% 0.02 285 / 0.85);
+
+  /* Effets */
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* THÈME CLAIR */
+[data-theme="light"] {
+  /* Palette Neutre "Fresh Soft" */
+  --neutral-50: oklch(14% 0.01 285);  /* Texte le plus sombre */
+  --neutral-100: oklch(20% 0.02 285); /* Texte principal */
+  --neutral-200: oklch(35% 0.03 285); /* Texte muté */
+  --neutral-400: oklch(60% 0.02 285);
+  --neutral-500: oklch(75% 0.02 285);
+  --neutral-800: oklch(92% 0.01 285);
+  --neutral-900: oklch(97% 0.005 285); /* Background principal */
+  --neutral-950: oklch(100% 0 0);      /* Background pur */
+
+  /* Couleurs de fond */
+  --color-bg: var(--neutral-900);
+  --color-bg-subtle: var(--neutral-950);
+  --color-bg-card: #ffffff;
+  
+  /* Couleurs de texte */
+  --color-text: var(--neutral-100);
+  --color-text-muted: var(--neutral-200);
+  --color-text-on-dark: #ffffff;
+  
+  /* Couleurs utilitaires */
+  --color-accent: oklch(55% 0.2 295); /* Violet un peu plus doux pour le clair */
+  --color-border: oklch(85% 0.02 285 / 0.8);
+  --color-overlay: oklch(98% 0.01 285 / 0.9);
+
+  /* Effets */
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+:root {
   
   /* ============ TYPOGRAPHIE ============ */
   

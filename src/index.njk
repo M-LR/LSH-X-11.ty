@@ -36,11 +36,13 @@ description: Association de production audiovisuelle professionnelle
               Projet à la une
             </h2>
             <div class="featured-project-row">
-              <div
-                class="featured-project-image"
-                role="img"
-                aria-label="Image du projet à la une"
-                style="background-image: url('{{ featured_project.data.image | url }}');"></div>
+              <a href="{{ featured_project.url | url }}" class="featured-project-image-link" aria-label="Voir le projet {{ featured_project.data.title }}">
+                <div
+                  class="featured-project-image"
+                  role="img"
+                  aria-label="Image du projet {{ featured_project.data.title }}"
+                  style="background-image: url('{{ featured_project.data.image | url }}');"></div>
+              </a>
               <div class="featured-project-text">
                 <h3 class="featured-project-title">
                   {{ featured_project.data.title }}
