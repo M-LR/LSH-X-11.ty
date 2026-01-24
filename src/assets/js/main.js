@@ -64,4 +64,22 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll, { passive: true });
 });
 
+// Theme Toggle Logic
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Optionnel : Mise à jour de l'icône si besoin
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.className = newTheme === 'dark' ? 'ri-palette-line' : 'ri-sun-line';
+        }
+    });
+}
+
 
