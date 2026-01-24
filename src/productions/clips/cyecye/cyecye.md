@@ -1,5 +1,5 @@
 ---
-featured-project : true
+featured-project : false
 layout: production.njk
 title: Cover your ears Cover your eyes
 tags:

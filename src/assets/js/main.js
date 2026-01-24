@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const onScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
     elements.forEach(el => {
-      el.style.transform = `translateY(${scrollY * speed}px) scaleX(-1)`;
+      const flip = getComputedStyle(el).getPropertyValue('--parallax-flip').trim() || '1';
+      el.style.transform = `translateY(${scrollY * speed}px) scaleX(${flip})`;
     });
   };
 

@@ -19,20 +19,20 @@
   --violet-700: #7e22ce;
   --violet-900: #4c1d95;
   
-  /* Palette Neutre - Deep Slate / Night */
-  --neutral-50: #fafafa;
-  --neutral-100: #f5f5f5;
-  --neutral-200: #e5e5e5;
-  --neutral-400: #a3a3a3;
-  --neutral-500: #737373;
-  --neutral-800: #262626;
-  --neutral-900: #171717;
-  --neutral-950: #0a0a0a;
+  /* Palette Neutre "Cinematic Deep" - Utilisation de OKLCH pour une profondeur moderne */
+  --neutral-50: oklch(98% 0.005 285);
+  --neutral-100: oklch(92% 0.01 285);
+  --neutral-200: oklch(85% 0.02 285);
+  --neutral-400: oklch(65% 0.03 285);
+  --neutral-500: oklch(50% 0.04 285);
+  --neutral-800: oklch(22% 0.02 285);   /* Gris profond teinté de violet */
+  --neutral-900: oklch(16% 0.015 285);  /* Background principal */
+  --neutral-950: oklch(11% 0.01 285);   /* Noir pur cinématique */
 
   /* Couleurs de fond */
-  --color-bg: var(--neutral-950);
-  --color-bg-subtle: var(--neutral-900);
-  --color-bg-card: #141414;
+  --color-bg: var(--neutral-900);
+  --color-bg-subtle: var(--neutral-950);
+  --color-bg-card: oklch(20% 0.02 285);
   
   /* Couleurs de texte */
   --color-text: var(--neutral-100);
@@ -40,9 +40,9 @@
   --color-text-on-dark: #ffffff;
   
   /* Couleurs utilitaires */
-  --color-accent: var(--violet-500);
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-overlay: rgba(0, 0, 0, 0.75);
+  --color-accent: oklch(62% 0.23 295); /* Violet électrique plus vibrant */
+  --color-border: oklch(25% 0.03 285 / 0.5);
+  --color-overlay: oklch(10% 0.02 285 / 0.85);
   
   /* ============ TYPOGRAPHIE ============ */
   
