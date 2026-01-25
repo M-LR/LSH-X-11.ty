@@ -22,6 +22,10 @@ module.exports = function(eleventyConfig) {
   // Watch les changements CSS en développement
   eleventyConfig.addWatchTarget("assets/css/**/*.css");
   
+  // Configuration du serveur de développement pour gérer les 404
+  eleventyConfig.setServerOptions({
+    show404Page: true,
+  });
 
   return {
     // Utiliser Nunjucks pour les fichiers Markdown

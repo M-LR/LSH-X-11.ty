@@ -82,4 +82,36 @@ if (themeToggle) {
     });
 }
 
+// Gallery Modal Logic
+const galleryTriggers = document.querySelectorAll('.gallery-trigger');
+const galleryModal = document.getElementById('gallery-modal');
+const modalImage = document.getElementById('modal-image');
+const modalClose = document.querySelectorAll('[data-micromodal-close]');
+
+if (galleryTriggers.length > 0 && galleryModal && modalImage) {
+    galleryTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            modalImage.src = trigger.src;
+            modalImage.alt = trigger.alt;
+            galleryModal.classList.add('is-open');
+            document.body.style.overflow = 'hidden'; // Empêche le scan
+        });
+    });
+
+    modalClose.forEach(close => {
+        close.addEventListener('click', () => {
+            galleryModal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Fermer avec Echap
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && galleryModal.classList.contains('is-open')) {
+            galleryModal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
 
