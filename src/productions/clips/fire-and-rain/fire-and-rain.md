@@ -9,6 +9,7 @@ director: Leonora Schlünz
 duration: 4 min 55
 type: "Clip"
 year: 2025
+date: 2025-09-03
 country: "France"
 summary: ""
 pitch: ""

@@ -1,26 +1,8 @@
 [
   {
-    "name": "Ville du Héron",
-    "logo": "/assets/images/partners/partners.png",
-    "alt": "Ville du Héron",
-    "url": ""
-  },
-  {
-    "name": "Festival des Docs Engagés",
-    "logo": "/assets/images/partners/partners.png",
-    "alt": "Festival des Docs Engagés",
-    "url": ""
-  },
-  {
-    "name": "Fondation X pour l’Image",
-    "logo": "/assets/images/partners/partners.png",
-    "alt": "Fondation X pour l’Image",
-    "url": ""
-  },
-  {
-    "name": "Média Local Solidaire",
-    "logo": "/assets/images/partners/partners.png",
-    "alt": "Média Local Solidaire",
-    "url": ""
+    "name": "Fugues Média",
+    "logo": "/assets/images/partners/fugues_media.png",
+    "alt": "Fugues Média",
+    "url": "https://www.instagram.com/fugues_media/"
   }
 ]

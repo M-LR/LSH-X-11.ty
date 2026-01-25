@@ -65,7 +65,7 @@ description: Association de production audiovisuelle professionnelle
             <span>ensemble</span>
           </h2>
           <div class="productions-grid">
-            {% for item in collections.production %}
+            {% for item in collections.production | reverse %}
               <a class="production-card" href="{{ item.url | url }}">
                 <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
                 <div class="production-overlay">
@@ -160,7 +160,7 @@ description: Association de production audiovisuelle professionnelle
           </h2>
           <p class="partners-intro">
             Les Studios du Héron travaillent avec des structures engagées qui partagent nos valeurs de création indépendante,
-            d’inclusion et de respect de l’environnement.
+            d’inclusion et de respect.
           </p>
           <div class="partners-grid">
             {% for partner in partners %}

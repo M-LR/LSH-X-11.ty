@@ -3,6 +3,6 @@
 /.cache
 /.parcel-cache
 /.vscode
-/.DS_Store
+.DS_Store
 /.env.local
 /.env.*.local
