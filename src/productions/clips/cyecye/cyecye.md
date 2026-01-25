@@ -1,25 +1,45 @@
 ---
 featured-project : false
 layout: production.njk
-title: Cover your ears Cover your eyes
-tags:
-  - production
-  - projet
-  - musique
-  - clip
-statut: date de sortie - décembre 2024
+title: Cover Your Ears Cover Your Eyes
+tags: production
+statut: Sorti le 21 déc. 2024
 image: "/assets/images/productions/clips/cyecye/cyecye.jpeg"
-director: Aurelien Thome
-duration: 5 min
+director: Aurélien Thome
+duration: 4 min 32
 type: "Clip"
 year: 2024
 country: "France"
-summary: " "
-pitch: 
-video: 
-photos: 
+summary: ""
+pitch: ""
+status_info: "599 vues • Sorti le 21 déc. 2024"
+video_title: "Clip officiel"
+video_embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/V-9xxU4gqKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+gallery:
+  - "/assets/images/productions/clips/cyecye/cyecye_gl1.jpeg"
+  - "/assets/images/productions/clips/cyecye/cyecye_gl2.jpeg"
+  - "/assets/images/productions/clips/cyecye/cyecye_gl3.jpeg"
+external_links:
+
+  - label: "Album complet"
+    url: "https://music.imusician.pro/a/cP40YUrr"
+cast_list:
+  - role: "Chorégraphe & Interprète"
+    name: "Camille Gesbert"
+crew_list:
+  - role: "Réalisateur"
+    name: "Aurélien Thome"
+  - role: "Lumière & Caméra"
+    name: "Eugénie Fragert (Les Studios du Héron), Emelère (Les Studios du Héron)"
+  - role: "Montage"
+    name: "Emelère (Les Studios du Héron)"
+  - role: "Photographe de plateau"
+    name: "María Fernanda García García"
+music_credits:
+  - "Musique & Paroles : Aurélien Thome"
 link: 
 # relatedProductions:
+
 #   - title: "Autre documentaire"
 #     url: "/fr/documentaires/famille/autre-doc"
 #     image: "/images/autre-doc.jpg"
