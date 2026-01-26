@@ -1,0 +1,48 @@
+---
+layout: base.njk
+---
+<nav class="breadcrumb breadcrumb--mt" aria-label="Fil d'ariane">
+    <div class="container">
+        <ol>
+            <li>
+                <a href="{{ '/' | url }}">Accueil</a>
+            </li>
+            <li aria-current="page">Productions</li>
+        </ol>
+    </div>
+</nav>
+
+<div class="productions-page-wrapper">
+    <section class="productions-hero-simple">
+        <div class="container">
+            <h1 class="section-title">Nos
+                <span>Productions</span>
+            </h1>
+            <p class="section-desc">
+                Explorez l'univers visuel des Studios du Héron. Du documentaire engagé à la fiction poétique, découvrez l'ensemble de
+                nos réalisations audiovisuelles.
+            </p>
+        </div>
+    </section>
+    <section class="productions-list-section">
+        <div class="container">
+            <div class="productions-grid">
+                {% for item in collections.production | reverse %}
+                    <a class="production-card" href="{{ item.url | url }}">
+                        <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
+                        <div class="production-overlay">
+                            <div class="production-header">
+                                <h4 class="production-title">{{ item.data.title }}</h4>
+                            </div>
+                            <div class="production-info">
+                                <p class="production-director">{{ item.data.director }}</p>
+                                <p class="production-type">{{ item.data.type }}</p>
+                                <p class="production-summary">{{ item.data.summary }}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>

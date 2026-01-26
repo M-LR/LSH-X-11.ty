@@ -2,5 +2,9 @@
   {
     "label": "Accueil",
     "url": "/"
+  },
+  {
+    "label": "Productions",
+    "url": "/productions"
   }
 ]

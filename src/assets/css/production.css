@@ -4,6 +4,32 @@
   padding-bottom: var(--space-3xl);
 }
 
+/* --- PAGE LISTING PRODUCTIONS --- */
+.productions-page-wrapper {
+  padding-top: var(--space-3xl);
+}
+
+.productions-hero-simple {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.productions-hero-simple .section-title {
+  margin-bottom: var(--space-md);
+}
+
+.section-desc {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 70ch;
+  margin: 0 auto var(--space-xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.productions-list-section {
+  padding-bottom: var(--space-3xl);
+}
+
 /* --- HERO BANNER --- */
 .production-hero {
   position: relative;
@@ -125,10 +151,39 @@
   color: var(--color-text);
   font-weight: var(--font-weight-bold);
 }
-
+.breadcrumb.breadcrumb--mt {
+  margin-top: var(--space-lg);
+}
 /* --- CONTENT SECTIONS --- */
 .production-section {
   margin-bottom: var(--space-lg);
+  position: relative;
+}
+
+.production-cast {
+  overflow: hidden;
+  padding: var(--space-xl) 0;
+}
+
+.production-cast__parallax {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  z-index: 0;
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  background-image: url("../images/production.png");
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.production-cast .section-title,
+.production-cast .credits-list {
+  position: relative;
+  z-index: 1;
 }
 
 .production-pitch {

@@ -2,15 +2,17 @@
 featured-project : false
 layout: production.njk
 title: Cover Your Ears Cover Your Eyes
-tags: production
+tags: 
+  - production
+  - clip
 statut: Sorti le 21 déc. 2024
 image: "/assets/images/productions/clips/cyecye/cyecye.jpeg"
 director: Aurélien Thome
 duration: 4 min 32
-type: "Clip"
+type: clip
 year: 2024
 date: 2024-12-21
-country: "France"
+country: France
 summary: ""
 pitch: ""
 status_info: "599 vues • Sorti le 21 déc. 2024"
@@ -39,10 +41,5 @@ crew_list:
 music_credits:
   - "Musique & Paroles : Aurélien Thome"
 link: 
-# relatedProductions:
-
-#   - title: "Autre documentaire"
-#     url: "/fr/documentaires/famille/autre-doc"
-#     image: "/images/autre-doc.jpg"
 
 

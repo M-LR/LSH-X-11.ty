@@ -103,6 +103,7 @@ layout: base.njk
                 <!-- Cast Section -->
                 {% if cast_list %}
                     <section class="production-section production-cast">
+                        <div class="production-cast__parallax el__parallax"></div>
                         <h2 class="section-title">Distribution</h2>
                         <ul class="credits-list">
                             {% for actor in cast_list %}
@@ -197,20 +198,31 @@ layout: base.njk
                     </section>
                 {% endif %}
                 <!-- Related Productions -->
-                {% if relatedProductions %}
-                    <section class="production-section related-productions">
-                        <h2 class="section-title">D'autres
-                            <span>productions</span>
-                        </h2>
-                        <div class="related-productions-grid">
-                            {% for prod in relatedProductions %}
-                                <a href="{{ prod.url | url }}" class="related-production-card">
-                                    <div class="related-production-image" style="background-image: url('{{ prod.image | url }}');"></div>
-                                    <span class="related-production-title">{{ prod.title }}</span>
+                {# Related Productions - version corrigée #}
+                {% if type %}
+                    
+                        <section class="production-section related-productions">
+                            <h2 class="section-title">D'autres {{ type | lower }}s</h2>
+                            <div class="related-productions-grid">
+                            {% for prod in collections[type] %}
+                                {% if prod.url != page.url %}
+                                    <a href="{{ prod.url | url }}" class="related-production-card">
+                                    <div class="related-production-image-wrapper">
+                                        <div class="related-production-image"
+                                            style="background-image: url('{{ prod.data.image | url }}');"></div>
+                                    </div>
+                                <div class="related-production-body">
+                                    <span class="related-production-type">
+                                    {{ prod.data.type }}
+                                    {% if prod.data.year %} • {{ prod.data.year }}{% endif %}
+                                    </span>
+                                    <span class="related-production-title">{{ prod.data.title }}</span>
+                                </div>  
                                 </a>
+                                {% endif %}
                             {% endfor %}
-                        </div>
-                    </section>
+                            </div>
+                        </section>
                 {% endif %}
             </div>
         </div>
@@ -226,4 +238,5 @@ layout: base.njk
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
+    </article>

@@ -2,15 +2,17 @@
 featured-project : false
 layout: production.njk
 title: Fire and Rain
-tags: production
+tags: 
+  - production
+  - clip
 statut: Sorti le 3 sept. 2025
 image: "/assets/images/productions/clips/fire-and-rain/fire-and-rain_gl2.jpeg"
 director: Leonora Schlünz
 duration: 4 min 55
-type: "Clip"
+type: clip
 year: 2025
 date: 2025-09-03
-country: "France"
+country: France
 summary: ""
 pitch: ""
 status_info: "54 632 vues • Sorti le 3 sept. 2025"
@@ -74,9 +76,6 @@ gallery:
   - "/assets/images/productions/clips/fire-and-rain/fire-and-rain_gl2.jpeg"
   - "/assets/images/productions/clips/fire-and-rain/fire-and-rain_gl3.jpeg"
 link: 
-# relatedProductions:
-#   - title: "Autre documentaire"
-#     url: "/fr/documentaires/famille/autre-doc"
-#     image: "/images/autre-doc.jpg"
+
 
 

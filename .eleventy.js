@@ -17,8 +17,6 @@ module.exports = function(eleventyConfig) {
   // Copier les assets vers le dossier de sortie
   eleventyConfig.addPassthroughCopy("src/assets");
 
-
-  
   // Watch les changements CSS en développement
   eleventyConfig.addWatchTarget("assets/css/**/*.css");
   

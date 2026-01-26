@@ -121,10 +121,10 @@
 /* Élément interne pour la parallaxe */
 .featured-project__parallax {
   position: absolute;
-  top: -10%;
+  top: -2%;
   right: 0%;
   z-index: 1;
-  width: 25%; /* Diminué de 35% à 25% */
+  width: 18%; /* Diminué de 25% à 18% */
   aspect-ratio: 1 / 1;
   background-image: url("../images/featured.png");
   background-size: contain;
@@ -132,7 +132,8 @@
   background-repeat: no-repeat;
   pointer-events: none;
   opacity: 0.8;
-  --parallax-flip: -1; /* Rétablit l'inversion uniquement pour celle-ci */
+  /* --parallax-flip: -1; Var removed, using explicit transform */
+  transform: scaleX(-1);
 }
 
 .featured-project-row {
@@ -198,6 +199,28 @@
 .productions {
   padding: var(--space-2xl) 0;
   border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.productions__parallax {
+  position: absolute;
+  top: -1%;
+  right: 0;
+  z-index: 1;
+  width: 18%;
+  aspect-ratio: 1 / 1;
+  background-image: url("../images/production.png");
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.productions .container {
+  position: relative;
+  z-index: 2;
 }
 
 .productions-grid {
@@ -363,8 +386,9 @@
 
 .about__parallax {
   position: absolute;
+  bottom: 0%;
   z-index: 1;
-  width: 30%;
+  width: 22%;
   aspect-ratio: 1 / 1;
   background-image: url("../images/about.png");
   background-size: contain;
