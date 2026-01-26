@@ -6,9 +6,20 @@ const headerActions = document.querySelector('.header-actions');
 if (mobileMenuToggle) {
   mobileMenuToggle.addEventListener('click', () => {
     mainNav.classList.toggle('active');
-    headerActions.classList.toggle('active');
+    if (headerActions) headerActions.classList.toggle('active');
     mobileMenuToggle.classList.toggle('active');
     document.body.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking on a link
+  const navLinks = mainNav.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('active');
+      if (headerActions) headerActions.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
   });
 }
 

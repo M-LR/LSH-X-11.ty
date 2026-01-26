@@ -38,10 +38,16 @@
           <img src={{ site.logo | url }} alt="{{ site.title }}" class="logo-img">
           <span class="logo-text">{{ site.title }}</span>
         </a>
+        <button class="mobile-menu-toggle" aria-label="Menu principal">
+          <i class="ri-menu-line open-icon"></i>
+          <i class="ri-close-line close-icon"></i>
+        </button>
         <nav class="main-nav">
-          {% for item in navigation %}
-            <a href="{{ item.url | url }}">{{ item.label }}</a>
-          {% endfor %}
+          <div class="nav-links">
+            {% for item in navigation %}
+              <a href="{{ item.url | url }}">{{ item.label }}</a>
+            {% endfor %}
+          </div>
           <!-- Theme Toggle Button -->
           <button id="theme-toggle" class="theme-toggle" aria-label="Changer de thème">
             <i class="ri-palette-line"></i>
