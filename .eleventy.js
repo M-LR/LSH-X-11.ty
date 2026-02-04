@@ -16,6 +16,7 @@ module.exports = function(eleventyConfig) {
 
   // Copier les assets vers le dossier de sortie
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   // Watch les changements CSS en développement
   eleventyConfig.addWatchTarget("assets/css/**/*.css");
@@ -28,7 +29,7 @@ module.exports = function(eleventyConfig) {
   return {
     // Utiliser Nunjucks pour les fichiers Markdown
     markdownTemplateEngine: "njk",
-    pathPrefix: "/LSH-X-11.ty/",
+    pathPrefix: "/",
     dir: {
       input: "src",
       includes: "_includes",
