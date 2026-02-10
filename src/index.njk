@@ -47,6 +47,13 @@ description: Association de production audiovisuelle professionnelle
                 <h3 class="featured-project-title">
                   {{ featured_project.data.title }}
                 </h3>
+                <div class="badge-list" style="margin-bottom: var(--space-sm);">
+                  {% for tag in featured_project.data.tags %}
+                    {% if tag != "production" %}
+                      <span class="badge">{{ tag }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
                 <p>{{ featured_project.data.statut }}</p>
                 <p class="featured-project-director">Réalisé par : {{ featured_project.data.director }}</p>
                 <p class="featured-project-description">{{ featured_project.data.summary }}</p>
@@ -69,6 +76,13 @@ description: Association de production audiovisuelle professionnelle
             {% for item in collections.production | reverse %}
               <a class="production-card" href="{{ item.url | url }}">
                 <div class="production-image" style="background-image: url('{{ item.data.image | url }}')"></div>
+                <div class="production-card__tags">
+                  {% for tag in item.data.tags %}
+                    {% if tag != "production" %}
+                      <span class="badge badge--subtle">{{ tag }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
                 <div class="production-overlay">
                   <div class="production-header">
                     <h4 class="production-title">{{ item.data.title }}</h4>

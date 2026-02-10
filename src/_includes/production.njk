@@ -3,240 +3,248 @@ layout: base.njk
 ---
 
 <article
-    class="production-page">
-    <!-- Banner Section -->
-    <header class="production-hero">
-        <div class="production-hero__bg" style="background-image: url('{{ image | url }}');"></div>
-        <div class="production-hero__overlay"></div>
-        <div class="container">
-            <div class="production-hero__content">
-                <div class="production-hero__header">
-                    <h1 class="production-hero__title">{{ title }}</h1>
-                    <div class="production-hero__meta">
-                        <span class="production-hero__type">{{ type }}</span>
-                        <span class="production-hero__separator">•</span>
-                        <span class="production-hero__duration">{{ duration }}</span>
-                        <span class="production-hero__separator">•</span>
-                        <span class="production-hero__status">{{ statut }}</span>
-                    </div>
-                </div>
-                <div class="production-hero__director">Un film de
-                    <strong>{{ director }}</strong>
-                </div>
-            </div>
-        </div>
-    </header>
-    <nav class="breadcrumb" aria-label="Fil d'ariane">
-        <div class="container">
-            <ol>
-                <li>
-                    <a href="{{ '/' | url }}">Accueil</a>
-                </li>
-                <li>
-                    <a href="{{ '/productions' | url }}">Productions</a>
-                </li>
-                {% if type %}
-                    <li>
-                        <a href="{{ ('/productions/' + type | lower + 's') | url }}">{{ type }}s</a>
-                    </li>
-                {% endif %}
-                <li aria-current="page">{{ title }}</li>
-            </ol>
-        </div>
-    </nav>
+  class="production-page">
+  <!-- Banner Section -->
+  <header class="production-hero">
+    <div class="production-hero__bg" style="background-image: url('{{ image | url }}');"></div>
+    <div class="production-hero__overlay"></div>
     <div class="container">
-        <div
-            class="production-main-content">
-            <!-- Summary & Pitch -->
-            <section class="production-section production-about">
-                <h2 class="section-title">À propos du
-                    <span>{{ type }}</span>
-                </h2>
-                {% if pitch %}
-                    <p class="production-pitch">{{ pitch | safe }}</p>
-                {% endif %}
-                <div class="production-summary-content">
-                    {{ summary | safe }}
-                </div>
-                {% if content %}
-                    <div class="production-description">
-                        {{ content | safe }}
-                    </div>
-                {% endif %}
-            </section>
-            <!-- External Links (Music, etc.) -->
-            {% if external_links %}
-                <section class="production-section production-links">
-                    <div class="production-links-list">
-                        {% for item in external_links %}
-                            <a href="{{ item.url }}" target="_blank" class="btn btn--alt">
-                                <i class="ri-external-link-line"></i>
-                                {{ item.label }}
-                            </a>
-                        {% endfor %}
-                    </div>
-                </section>
-            {% endif %}
-            <!-- Video Section -->
-            {% if video_url or video_embed %}
-                <section class="production-section production-video">
-                    <h2 class="section-title">{{ video_title or "Voir la vidéo" }} |
-                        <span>{{ title }}</span>
-                    </h2>
-                    {% if video_embed %}
-                        <div class="production-video-embed">
-                            {{ video_embed | safe }}
-                        </div>
-                    {% elif video_url %}
-                        <div class="production-video-link">
-                            <a href="{{ video_url }}" target="_blank" class="btn btn--alt">
-                                <i class="ri-play-fill"></i>
-                                Visionner la vidéo
-                            </a>
-                        </div>
-                    {% endif %}
-                </section>
-            {% endif %}
-            <!-- Detailed Credits -->
-            <div
-                class="production-credits-wrapper">
-                <!-- Cast Section -->
-                {% if cast_list %}
-                    <section class="production-section production-cast">
-                        <div class="production-cast__parallax el__parallax"></div>
-                        <h2 class="section-title">Distribution</h2>
-                        <ul class="credits-list">
-                            {% for actor in cast_list %}
-                                <li>
-                                    <strong>{{ actor.role }} :</strong>
-                                    {{ actor.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                {% endif %}
-                <!-- Full Crew Section -->
-                {% if crew_list %}
-                    <section class="production-section production-crew">
-                        <h2 class="section-title">Équipe
-                            <span>technique</span>
-                        </h2>
-                        <ul class="credits-list credits-list--grid">
-                            {% for member in crew_list %}
-                                <li>
-                                    <strong>{{ member.role }} :</strong>
-                                    {{ member.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                {% endif %}
-                <!-- Music Section -->
-                {% if music_credits %}
-                    <section class="production-section production-music">
-                        <h2 class="section-title">Musique</h2>
-                        <ul class="credits-list">
-                            {% for credit in music_credits %}
-                                <li>{{ credit }}</li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                {% endif %}
-            </div>
-            <!-- Gallery Section -->
-            {% if gallery %}
-                <section class="production-section production-gallery">
-                    <h2 class="section-title">Galerie
-                        <span>photos</span>
-                    </h2>
-                    <div class="production-gallery-grid">
-                        {% for photo in gallery %}
-                            <div class="production-gallery-item">
-                                <img src="{{ photo | url }}" alt="Capture de {{ title }}" loading="lazy" class="gallery-trigger"></div>
-                            {% endfor %}
-                        </div>
-                    </section>
-                {% endif %}
-                <!-- Basic Info / Fiche technique -->
-                <section class="production-section production-credits">
-                    <h3>Informations complémentaires</h3>
-                    <ul>
-                        <li>
-                            <strong>Réalisation :</strong>
-                            {{ director or "Les Studios du Héron" }}</li>
-                        {% if year %}
-                            <li>
-                                <strong>Année :</strong>
-                                {{ year }}</li>
-                        {% endif %}
-                        {% if status_info %}
-                            <li>
-                                <strong>Diffusion :</strong>
-                                {{ status_info }}</li>
-                        {% endif %}
-                        {% if country %}
-                            <li>
-                                <strong>Pays :</strong>
-                                {{ country }}</li>
-                        {% endif %}
-                    </ul>
-                </section>
-                <!-- Thanks & Support -->
-                {% if thanks or support %}
-                    <section class="production-section production-thanks">
-                        {% if thanks %}
-                            <div class="thanks-block">
-                                <h4 class="thanks-title">Remerciements</h4>
-                                <p>{{ thanks | join(', ') }}</p>
-                            </div>
-                        {% endif %}
-                        {% if support %}
-                            <div class="support-block">
-                                <p class="support-text">
-                                    <em>{{ support }}</em>
-                                </p>
-                            </div>
-                        {% endif %}
-                    </section>
-                {% endif %}
-                <!-- Related Productions -->
-                {# Related Productions - version corrigée #}
-                {% if type %}
-                    
-                        <section class="production-section related-productions">
-                            <h2 class="section-title">D'autres {{ type | lower }}s</h2>
-                            <div class="related-productions-grid">
-                            {% for prod in collections[type] %}
-                                {% if prod.url != page.url %}
-                                    <a href="{{ prod.url | url }}" class="related-production-card">
-                                    <div class="related-production-image-wrapper">
-                                        <div class="related-production-image"
-                                            style="background-image: url('{{ prod.data.image | url }}');"></div>
-                                    </div>
-                                <div class="related-production-body">
-                                    <span class="related-production-type">
-                                    {{ prod.data.type }}
-                                    {% if prod.data.year %} • {{ prod.data.year }}{% endif %}
-                                    </span>
-                                    <span class="related-production-title">{{ prod.data.title }}</span>
-                                </div>  
-                                </a>
-                                {% endif %}
-                            {% endfor %}
-                            </div>
-                        </section>
-                {% endif %}
-            </div>
+      <div class="production-hero__content">
+        <div class="production-hero__header">
+          <h1 class="production-hero__title">{{ title }}</h1>
+          <div class="badge-list" style="margin-bottom: var(--space-sm);">
+            {% for tag in tags %}
+              {% if tag != "production" %}
+                <span class="badge">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="production-hero__meta">
+            <span class="production-hero__type">{{ type }}</span>
+            <span class="production-hero__separator">•</span>
+            <span class="production-hero__duration">{{ duration }}</span>
+            <span class="production-hero__separator">•</span>
+            <span class="production-hero__status">{{ statut }}</span>
+          </div>
         </div>
-        <!-- Modal for Gallery -->
-        <div id="gallery-modal" class="modal" aria-hidden="true">
-            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-                <div class="modal__container" role="dialog" aria-modal="true">
-                    <button class="modal__close" aria-label="Fermer" data-micromodal-close>
-                        <i class="ri-close-line"></i>
-                    </button>
-                    <div class="modal__content">
-                        <img id="modal-image" src="" alt="Image agrandie"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="production-hero__director">Un film de
+          <strong>{{ director }}</strong>
         </div>
-    </article>
+      </div>
+    </div>
+  </header>
+  <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <div class="container">
+      <ol>
+        <li>
+          <a href="{{ '/' | url }}">Accueil</a>
+        </li>
+        <li>
+          <a href="{{ '/productions' | url }}">Productions</a>
+        </li>
+        {% if type %}
+          <li>
+            <a href="{{ ('/productions/' + type | lower + 's') | url }}">{{ type }}s</a>
+          </li>
+        {% endif %}
+        <li aria-current="page">{{ title }}</li>
+      </ol>
+    </div>
+  </nav>
+  <div class="container">
+    <div
+      class="production-main-content">
+      <!-- Summary & Pitch -->
+      <section class="production-section production-about">
+        <h2 class="section-title">À propos du
+          <span>{{ type }}</span>
+        </h2>
+        {% if pitch %}
+          <p class="production-pitch">{{ pitch | safe }}</p>
+        {% endif %}
+        <div class="production-summary-content">
+          {{ summary | safe }}
+        </div>
+        {% if content %}
+          <div class="production-description">
+            {{ content | safe }}
+          </div>
+        {% endif %}
+      </section>
+      <!-- External Links (Music, etc.) -->
+      {% if external_links %}
+        <section class="production-section production-links">
+          <div class="production-links-list">
+            {% for item in external_links %}
+              <a href="{{ item.url }}" target="_blank" class="btn btn--alt">
+                <i class="ri-external-link-line"></i>
+                {{ item.label }}
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+      <!-- Video Section -->
+      {% if video_url or video_embed %}
+        <section class="production-section production-video">
+          <h2 class="section-title">{{ video_title or "Voir la vidéo" }} |
+            <span>{{ title }}</span>
+          </h2>
+          {% if video_embed %}
+            <div class="production-video-embed">
+              {{ video_embed | safe }}
+            </div>
+          {% elif video_url %}
+            <div class="production-video-link">
+              <a href="{{ video_url }}" target="_blank" class="btn btn--alt">
+                <i class="ri-play-fill"></i>
+                Visionner la vidéo
+              </a>
+            </div>
+          {% endif %}
+        </section>
+      {% endif %}
+      <!-- Detailed Credits -->
+      <div
+        class="production-credits-wrapper">
+        <!-- Cast Section -->
+        {% if cast_list %}
+          <section class="production-section production-cast">
+            <div class="production-cast__parallax el__parallax"></div>
+            <h2 class="section-title">Distribution</h2>
+            <ul class="credits-list">
+              {% for actor in cast_list %}
+                <li>
+                  <strong>{{ actor.role }}
+                  </strong>
+                  {{ actor.name }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+        <!-- Full Crew Section -->
+        {% if crew_list %}
+          <section class="production-section production-crew">
+            <h2 class="section-title">Équipe
+              <span>technique</span>
+            </h2>
+            <ul class="credits-list credits-list--grid">
+              {% for member in crew_list %}
+                <li>
+                  <strong>{{ member.role }} :</strong>
+                  {{ member.name }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+        <!-- Music Section -->
+        {% if music_credits %}
+          <section class="production-section production-music">
+            <h2 class="section-title">Musique</h2>
+            <ul class="credits-list">
+              {% for credit in music_credits %}
+                <li>{{ credit }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+      </div>
+      <!-- Gallery Section -->
+      {% if gallery %}
+        <section class="production-section production-gallery">
+          <h2 class="section-title">Galerie
+            <span>photos</span>
+          </h2>
+          <div class="production-gallery-grid">
+            {% for photo in gallery %}
+              <div class="production-gallery-item">
+                <img src="{{ photo | url }}" alt="Capture de {{ title }}" loading="lazy" class="gallery-trigger"></div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+        <!-- Basic Info / Fiche technique -->
+        <section class="production-section production-credits">
+          <h3>Informations complémentaires</h3>
+          <ul>
+            <li>
+              <strong>Réalisation :</strong>
+              {{ director or "Les Studios du Héron" }}</li>
+            {% if year %}
+              <li>
+                <strong>Année :</strong>
+                {{ year }}</li>
+            {% endif %}
+            {% if status_info %}
+              <li>
+                <strong>Diffusion :</strong>
+                {{ status_info }}</li>
+            {% endif %}
+            {% if country %}
+              <li>
+                <strong>Pays :</strong>
+                {{ country }}</li>
+            {% endif %}
+          </ul>
+        </section>
+        <!-- Thanks & Support -->
+        {% if thanks or support %}
+          <section class="production-section production-thanks">
+            {% if thanks %}
+              <div class="thanks-block">
+                <h4 class="thanks-title">Remerciements</h4>
+                <p>{{ thanks | join(', ') }}</p>
+              </div>
+            {% endif %}
+            {% if support %}
+              <div class="support-block">
+                <p class="support-text">
+                  <em>{{ support }}</em>
+                </p>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+        <!-- Related Productions -->
+        {# Related Productions - version corrigée #}
+        {% if type %}
+          <section class="production-section related-productions">
+            <h2 class="section-title">D'autres {{ type | lower }}s</h2>
+            <div class="related-productions-grid">
+              {% for prod in collections[type] %}
+                {% if prod.url != page.url %}
+                  <a href="{{ prod.url | url }}" class="related-production-card">
+                    <div class="related-production-image-wrapper">
+                      <div class="related-production-image" style="background-image: url('{{ prod.data.image | url }}');"></div>
+                    </div>
+                    <div class="related-production-body">
+                      <span class="related-production-type">
+                        {{ prod.data.type }}
+                        {% if prod.data.year %}
+                          • {{ prod.data.year }}
+                        {% endif %}
+                      </span>
+                      <span class="related-production-title">{{ prod.data.title }}</span>
+                    </div>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Modal for Gallery -->
+    <div id="gallery-modal" class="modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true">
+          <button class="modal__close" aria-label="Fermer" data-micromodal-close>
+            <i class="ri-close-line"></i>
+          </button>
+          <div class="modal__content">
+            <img id="modal-image" src="" alt="Image agrandie"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
